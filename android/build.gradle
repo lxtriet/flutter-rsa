@@ -54,6 +54,12 @@ android {
         minSdk = 21
     }
 
+    // Ensure only 64-bit ABIs are packaged from this plugin
+    packagingOptions {
+        exclude "**/armeabi-v7a/**"
+        exclude "**/x86/**"
+    }
+
     dependencies {
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.mockito:mockito-core:5.0.0")

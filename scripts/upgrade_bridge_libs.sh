@@ -54,6 +54,13 @@ do
   mkdir -p $OUTPUT_DIR
   tar -xz --strip-components=$OUTPUT_STRIP_DIR --directory=$OUTPUT_DIR --file=$TMP_FILE $OUTPUT_SUB_DIR
 
+  # Post-process: remove 32-bit Android ABIs which are not 16KB-page aligned yet
+  if [ "$PLATFORM" = "android" ]; then
+    echo "Removing 32-bit ABIs from android/src/main/jniLibs"
+    rm -rf android/src/main/jniLibs/armeabi-v7a || true
+    rm -rf android/src/main/jniLibs/x86 || true
+  fi
+
   INDEX=${INDEX}+1
 
   echo "Updated"

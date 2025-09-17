@@ -1,3 +1,7 @@
+## 3.8.6
+- Android: remove 32-bit ABIs (armeabi-v7a, x86) from plugin bundle to ensure 16KB page-size compliance on Android 15+ devices
+- Example: enforce 64-bit ABIs and packaging; verified AAB/APKs only contain 16KB-aligned libs
+
 ## 3.8.5
 - fix bridge lib copy on windows
 
