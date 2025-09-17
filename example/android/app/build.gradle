@@ -30,6 +30,18 @@ android {
         versionName = flutter.versionName
     }
 
+    // Ensure native libs are loaded directly without extraction (better for 16KB page size)
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+            // Exclude 32-bit ABIs to avoid bundling non-16KB aligned libs
+            excludes += [
+                "**/armeabi-v7a/**",
+                "**/x86/**"
+            ]
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

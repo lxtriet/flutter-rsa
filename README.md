@@ -231,7 +231,12 @@ var result = RSASync.base64(message);
 
 ### Android
 
-No additional setup required.
+No additional setup required for apps using modern Android toolchains. The bundled native libraries are built to support 16 KB page-size devices (Android 15+). For best results in your host app:
+
+- Ensure your Android Gradle Plugin and NDK are up to date (AGP 8.5+ and NDK r28+ recommended).
+- Avoid extracting native libraries from the APK by setting `android:extractNativeLibs="false"` on your `application` and using `packagingOptions.jniLibs.useLegacyPackaging = false` (default in recent AGP).
+
+This package’s example app is configured accordingly. Note: Only 64-bit ABIs (`arm64-v8a`, `x86_64`) are bundled to guarantee 16 KB page-size support.
 
 ### iOS
 

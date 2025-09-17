@@ -6,7 +6,6 @@
 
 build/
 
-
 .idea/
 *._*
 .flutter*
@@ -15,3 +14,6 @@ build/
 #
 # See https://dart.dev/guides/libraries/private-files#pubspeclock
 /pubspec.lock
+
+# FVM Version Cache
+.fvm/
